@@ -2,11 +2,11 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
 	"strconv"
 
 	events "github.com/aws/aws-lambda-go/events"
-	"github.com/aws/aws-sdk-go/aws"
+	lambda "github.com/aws/aws-lambda-go/lambda"
+	aws "github.com/aws/aws-sdk-go/aws"
 	session "github.com/aws/aws-sdk-go/aws/session"
 	dynamodb "github.com/aws/aws-sdk-go/service/dynamodb"
 	uuid "github.com/google/uuid"
@@ -66,5 +66,5 @@ func InsertProduct(request events.APIGatewayProxyRequest) (events.APIGatewayProx
 }
 
 func main() {
-	fmt.Println("Hello World")
+	lambda.Start(InsertProduct)
 }
